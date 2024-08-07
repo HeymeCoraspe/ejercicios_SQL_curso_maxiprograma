@@ -27,7 +27,7 @@ WHERE Descripcion LIKE 'r%'
 /*
 select * from Peliculas order by MinutosDuracion desc
 select titulo as pelicula, minutosduracion as duracion 
-from peliculas where MinutosDuracion > 170/*
+from peliculas where MinutosDuracion > 170*/
 
 --6) Obtener las Películas de Categoría 'Superhéroes'.
 /*select titulo from peliculas 
@@ -40,4 +40,16 @@ where IdCategoria= 27*/
 INNER JOIN [Peliculas.Reparto] AS PR ON P.ID=PR.IdPelicula
 WHERE P.Titulo LIKE '%intocables%'*/
 
+--8) Obtener los Actores que trabajaron en la Películas 'Los Intocables'.
+/*select (r.Nombre+ ' '+ r.Apellido) as Nombre, pa.nombre as Nacionalidad, fechanacimiento as "F.Nacimiento" from Reparto r
+inner join [Peliculas.Reparto] pr on r.Id=pr.IdReparto
+inner join Peliculas p on p.Id=pr.IdPelicula
+inner join Paises pa on pa.Id=r.IdNacionalidad
+where p.Titulo like '%intocables%'*/
+
+--9) Obtener el Total de Películas del Catálogo.
+/*select count (p.id) as "Cant. de películas" from Peliculas p*/
+
+--10) Obtener la Lista de Usuarios Inactivos.
+/*select * from Usuarios where Activo=0*/
 
